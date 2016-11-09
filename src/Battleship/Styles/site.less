@@ -1,6 +1,7 @@
 ﻿@import url('./variables/colours');
 @import url('./variables/margins');
 @import url('./variables/fonts');
+@import url('./animations');
 @import url('./grid');
 
 body, html {
@@ -24,16 +25,24 @@ body, html {
     .content-panel;
     background-color: @BrandColour1;
 }
+.end-game-panel {
+    .content-panel;
+    background-color: @BrandColour2;
+    transition: background-color 1s;
+}
 .options-panel {
     .content-panel;
 }
 .options-form {
     margin: auto;
-    width: 30%;
+    //width: 30%;
     padding: 10px;
     margin-top: 60%;
 }
-
+.title-font {
+    color: white;
+    font-size: 40px;
+}
 .controls {
     border: 2px solid @BrandColour1;
     color: @BrandColour1;
@@ -67,6 +76,18 @@ body, html {
    font-size: 18px;
    color: @FadedFont; 
    font-weight: 300;
+}
+
+.action-message {
+    margin-top: @message-padding;
+}
+.action-message > span {
+    font-size: 16px;
+    color:@BrandAccentColour3;
+}
+.action-message-anim {
+    -webkit-animation: fadeinout 4s linear 1 forwards;
+    animation: fadeinout 4s linear 1 forwards;
 }
 
 /* Carousel */

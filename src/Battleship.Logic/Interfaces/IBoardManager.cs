@@ -1,9 +1,11 @@
 using Battleship.Models;
+using Battleship.Models.Function;
 
 namespace Battleship.Logic.Interfaces
 {
     public interface IBoardManager
     {
-        bool Shoot(BoardCoordinates torpedo);
+        BoardWrapper GetBoard();
+        ShotWrapper Shoot(Torpedo torpedo);
     }
 }

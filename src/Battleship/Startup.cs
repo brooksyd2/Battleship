@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Battleship.Models;
+using Battleship.Models.Interfaces;
 
 namespace Battleship
 {
@@ -30,9 +32,12 @@ namespace Battleship
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
-
-            services.AddTransient<IBoardManager, BoardManager>();
+            services.AddMvc().AddWebApiConventions();
+            
+            services.AddScoped<IBoardFactory, BoardFactory>();
+            services.AddScoped(typeof(IShipFactory), typeof(ShipFactory));
+            services.AddSingleton<IBoardManager, BoardManager>();
+            services.AddSingleton<IConstants, Constants>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +62,10 @@ namespace Battleship
             {
                 routes.MapRoute(
                     name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapWebApiRoute(
+                    name: "apidefault",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }

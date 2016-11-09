@@ -1,11 +1,29 @@
 ﻿#grid-container {
 	margin-left: ~"calc(50% - 200px)";
 	margin-top: ~"calc(50vh - 200px)";
+
+    @media (min-width: 1000px) { 
+        margin-left: ~"calc(50% - 300px)";
+	    margin-top: ~"calc(50vh - 300px)";
+    }
+    @media (min-width: 1500px) { 
+        margin-left: ~"calc(50% - 350px)";
+	    margin-top: ~"calc(50vh - 350px)";
+    }
 }
 .grid {
 	height: 400px;
 	width: 400px;
 	border: 1px solid white;
+
+    @media (min-width: 1000px) { 
+        height: 600px;
+        width: 600px;
+    }
+    @media (min-width: 1500px) { 
+        height: 700px;
+        width: 700px;
+    }
 }
 grid-row:first-child {
 	border-top: 1px solid white;
@@ -14,6 +32,13 @@ grid-row:first-child {
 	height: 40px;
 	width: 100%;
 	display: inline-flex;
+
+    @media (min-width: 1000px) { 
+        height: 60px;
+    }
+    @media (min-width: 1500px) { 
+        height: 70px;
+    }
 }
 .grid-row > .grid-cell {
 	border-left: 1px solid white;
@@ -23,4 +48,28 @@ grid-row:first-child {
 	width: 40px;
 	padding: 5px;
 	border: 1px solid white;
+    font-size: 21px;
+    padding-left: 10px;
+
+    @media (min-width: 1000px) { 
+	    height: 60px;
+	    width: 60px;
+	    padding: 10px;
+        font-size: 22px;
+    }
+    @media (min-width: 1500px) { 
+	    height: 70px;
+	    width: 70px;
+	    padding: 15px;
+        font-size: 24px;
+    }
+}
+.red-icon {
+    color: @BrandAccentColour3;
+}
+.orange-icon {
+    color: @BrandAccentColour2;
+}
+.green-icon {
+    color: @BrandAccentColour1;
 }

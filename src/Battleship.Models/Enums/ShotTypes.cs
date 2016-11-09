@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Battleship.Logic.Tests
+namespace Battleship.Models.Enums
 {
-    public class Class1
+    public enum ShotTypes
     {
-        public Class1()
-        {
-        }
+        Hit,
+        Miss,
+        Sink,
+        Empty
     }
 }
